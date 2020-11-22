@@ -78,8 +78,8 @@ int OrdersData::getSize() {
 	return dataVector.size();
 }
 
-int OrdersData::exportToFile(string productsOutFileName) {
-	ofstream productOutFile(productsOutFileName, ios::out);
+int OrdersData::exportToFile(string outFileName) {
+	ofstream productOutFile(outFileName, ios::out);
 	if (!productOutFile) return 0;
 	for (Orders p : dataVector) {
 		productOutFile << p.toJson() << endl;

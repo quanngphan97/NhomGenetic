@@ -3,10 +3,16 @@
 #ifndef _OrderDetails_h
 #define _OrderDetails_h
 
-#include <string>
+#include <string>	//used for string
 #include <iostream>
+#include <vector>
+#include <fstream>	//used for filestream
 
-using namespace std;
+#include "Products.h"
+#include "./libs/json.hpp"
+
+using namespace std;	//using std namespace
+using json = nlohmann::json;
 
 class OrderDetails
 {
@@ -19,6 +25,8 @@ public:
 	OrderDetails();
 	OrderDetails(int OrderDetailID, int OrderID, int ProductID, int Quantity);
 
+	string toString();
+	json toJson();
 };
 
 

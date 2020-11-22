@@ -19,7 +19,7 @@ string Products::toString() {
 	s += ProductName + ", ";
 	s += to_string(SupplyID) + ", ";
 	s += to_string(CategoryID) + ", ";
-	s += Unit + ", ";
+	s += to_string(Unit) + ", ";
 	s += to_string(Price);
 
 	return s;

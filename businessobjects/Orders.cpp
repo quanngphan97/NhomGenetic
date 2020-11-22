@@ -17,7 +17,7 @@ string Orders::toString() {
 	s += to_string(CustomerID) + ", ";
 	s += to_string(EmployeeID) + ", ";
 	s += OrderDate + ", ";
-	s += ShipperID + ", ";
+	s += to_string(ShipperID);
 
 	return s;
 }
