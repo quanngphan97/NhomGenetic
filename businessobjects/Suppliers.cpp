@@ -25,7 +25,7 @@ json Supplier::ToJson(){
     j["SupplierID"] = SupplierID;
     j["SupplierName"] = SupplierName;
     j[" ContactName"] =  ContactName; 
-    j["Address"] = SupplierName;
+    j["Address"] = Address;
     j["City"] = City;
     j["PostalCode"] = PostalCode;
     j["Country"] = Country;
