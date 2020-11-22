@@ -9,8 +9,8 @@
 #include <vector>
 #include <fstream>	//used for filestream
 
-#include "Products.h"
-#include "./libs/json.hpp"
+#include "../businessobjects/Products.h"
+#include "../libs/json.hpp"
 
 using namespace std;	//using std namespace
 using json = nlohmann::json;

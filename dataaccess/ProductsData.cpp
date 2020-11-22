@@ -1,6 +1,6 @@
 #include "ProductsData.h"
 #include <fstream>
-#include "./libs/json.hpp"
+#include "../libs/json.hpp"
 
 ProductsData:: ProductsData() {
 	IDMax = 0;

@@ -1,21 +1,29 @@
-#ifndef _Suppliers_H
-#define _Suppliers_H
-#include <iostream>
-#include <string>
-using namespace std;
+#ifndef _Supplies_H
+#define _Supplies_H
 
-class Suppliers
+#include <string>
+#include "../libs/json.hpp"
+
+using namespace std;
+using json = nlohmann::json;
+
+class Supplier
 {
-		protected:
+	public:
 		int SupplierID;
 		string SupplierName;
-		string Address;
-		string City;
-		string PostalCode;
-		string Country;
-		string Phone;
+		string ContactName;
+        string Address;
+        string City;
+        string PostalCode;
+        string Country;
+        string Phone;
+
 	public:
-		Suppliers();
-		Suppliers(int SupplierID,string SupplierName,string Address,string City,string PostalCode,string Phone);
+		Supplier();
+		Supplier(int SupplierID,string SupplierName,string ContactName,string Address,string City,string PostalCode, string Country, string Phone);
+		json ToJson();
+		string Tostring();
 };
 #endif
+
