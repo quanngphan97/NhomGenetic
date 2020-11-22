@@ -22,14 +22,14 @@ Supplier::Supplier(int SupplierID,string SupplierName,string ContactName,string 
  */
 json Supplier::ToJson(){
     json j;
-    j["SupplierID"] = SupplierID;
-    j["SupplierName"] = SupplierName;
-    j[" ContactName"] =  ContactName; 
-    j["Address"] = Address;
-    j["City"] = City;
-    j["PostalCode"] = PostalCode;
-    j["Country"] = Country;
-    j["Phone"] = Phone;
+    j["SupplierID"] =SupplierID;
+    j["SupplierName"] =SupplierName;
+    j[" ContactName"] =ContactName; 
+    j["Address"] =Address;
+    j["City"] =City;
+    j["PostalCode"] =PostalCode;
+    j["Country"] =Country;
+    j["Phone"] =Phone;
     return j;
 }
 string Supplier::Tostring()
@@ -39,7 +39,7 @@ string Supplier::Tostring()
     s += to_string(SupplierID) + ", ";
     s += SupplierName + ", ";
     s += ContactName + ", ";
-    s += SupplierName + ", ";
+    s += Address + ", ";
     s += City + ", ";
     s += PostalCode + ", ";
     s += Country + ", ";
