@@ -26,11 +26,11 @@ string Orders::toString() {
 json Orders::toJson() {
 	json j;
 
-	j["ProductID"] = OrderID;
-	j["ProductName"] = CustomerID;
-	j["SupplyID"] = EmployeeID;
-	j["CategoryID"] = OrderDate;
-	j["Unit"] = ShipperID;
+	j["OrderID"] = OrderID;
+	j["CustomerID"] = CustomerID;
+	j["EmployeeID"] = EmployeeID;
+	j["OrderDate"] = OrderDate;
+	j["ShipperID"] = ShipperID;
 
 	return j;
 }
