@@ -19,6 +19,7 @@ public:
     int UpdateCategory(int id, Categories c);
     Categories Get(int id);
     Categories* GetPointer(int id);
+    int Remove(int);
     int GetSize();
     int ExportToFile(string filename);
 };

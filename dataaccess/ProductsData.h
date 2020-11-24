@@ -61,6 +61,7 @@ public:
 
     int pushBack(Products);
     int update(int, Products);
+    int remove(int);
     Products get(int);
     Products* getP(int);
     int getSize();

@@ -91,6 +91,14 @@ Categories* CategoriesData::GetPointer(int id){
     return c;
 }
 
+
+int CategoriesData::Remove(int i) {
+
+    _data.erase(_data.begin() + i);
+
+    return i;
+}
+
 /** @brief Function return size of CategoriesData.
  *  
  *  Function return size of CategoriesData. This is the quantity of Categories objects inside CategoriesData.
