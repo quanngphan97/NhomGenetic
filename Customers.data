@@ -2,3 +2,6 @@
 {"Address":"Avda. de la Constitucion 2222","City":"Mexico D.F.","ContactName":"Ana Trujillo","Country":"Mexico","CustomerID":2,"CustomerName":"Ana Trujillo Emparedados y helados","PostalCode":"5021"}
 {"Address":"Mataderos 2312","City":"Mexico D.F.","ContactName":"Antonio Moreno","Country":"Mexico","CustomerID":3,"CustomerName":"Antonio Moreno Taqueria","PostalCode":"5023"}
 {"Address":"120 Hanover Sq.","City":"London","ContactName":"Thomas Hardy","Country":"UK","CustomerID":4,"CustomerName":"Around the Horn","PostalCode":"WA1 1DP"}
+{"Address":"94 Le Loi Str","City":"DaNang","ContactName":"Genetic","Country":"VN","CustomerID":5,"CustomerName":"Genetic Center","PostalCode":"550000"}
+{"Address":"2 Quang Trung Str","City":"DaNang","ContactName":"SPark","Country":"VN","CustomerID":6,"CustomerName":"Software Park","PostalCode":"550000"}
+{"Address":"141 Bach Dang Str","City":"DaNang","ContactName":"VTV","Country":"VN","CustomerID":7,"CustomerName":"VTV Da Nang","PostalCode":"550000"}

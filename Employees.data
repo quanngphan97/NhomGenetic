@@ -1,10 +1,10 @@
-{"BirthDate":"12/8/1968","EmployeeID":1,"FirstName":"Nancy","LastName":"Davolio","Notes":"Education includes a BA in psychology from Colorado State University. She also completed (The Art of the Cold Call)","Photo":"EmpID1.pic"}
-{"BirthDate":"2/19/1952","EmployeeID":2,"FirstName":"Andrew","LastName":"Fuller","Notes":"Andrew received his BTS commercial and a Ph.D. in international marketing from the University of Dallas.","Photo":"EmpID2.pic"}
-{"BirthDate":"8/30/1963","EmployeeID":3,"FirstName":"Janet","LastName":"Leverling","Notes":"Janet has a BS degree in chemistry from Boston College)","Photo":"EmpID3.pic"}
-{"BirthDate":"9/19/1958","EmployeeID":4,"FirstName":"Margaret","LastName":"Peacock","Notes":"Margaret holds a BA in English literature from Concordia College and an MA from the American Institute of Culinary Arts.","Photo":"EmpID4.pic"}
-{"BirthDate":"3/4/1955","EmployeeID":5,"FirstName":"Steven","LastName":"Buchanan","Notes":"Steven Buchanan graduated from St. Andrews University, Scotland, with a BSC degree.","Photo":"EmpID5.pic"}
-{"BirthDate":"7/2/1963","EmployeeID":6,"FirstName":"Michael","LastName":"Suyama","Notes":"Michael is a graduate of Sussex University (MA, economics) and the University of California at Los Angeles (MBA, marketing).","Photo":"EmpID6.pic"}
-{"BirthDate":"5/29/1960","EmployeeID":7,"FirstName":"Robert","LastName":"King","Notes":"Robert King served in the Peace Corps and traveled extensively before completing his degree in English at the University of Michigan and then joining the company.","Photo":"EmpID7.pic"}
-{"BirthDate":"1/9/1958","EmployeeID":8,"FirstName":"Laura","LastName":"Callahan","Notes":"Laura received a BA in psychology from the University of Washington.","Photo":"EmpID8.pic"}
-{"BirthDate":"7/2/1969","EmployeeID":9,"FirstName":"Anne","LastName":"Dodsworth","Notes":"Anne has a BA degree in English from St. Lawrence College.","Photo":"EmpID9.pic"}
-{"BirthDate":"9/19/1928","EmployeeID":10,"FirstName":"Adam","LastName":"West","Notes":"An old chum.","Photo":"EmpID10.pic"}
+{"BirthDate":"1968-12-08","EmployeeID":1,"FirstName":"Nancy","LastName":"Davolio","Notes":"Education includes a BA in psychology from Colorado State University. She also completed (The Art of the Cold Call)","Photo":"EmpID1.pic"}
+{"BirthDate":"1952-02-19","EmployeeID":2,"FirstName":"Andrew","LastName":"Fuller","Notes":"Andrew received his BTS commercial and a Ph.D. in international marketing from the University of Dallas.","Photo":"EmpID2.pic"}
+{"BirthDate":"1963-08-30","EmployeeID":3,"FirstName":"Janet","LastName":"Leverling","Notes":"Janet has a BS degree in chemistry from Boston College)","Photo":"EmpID3.pic"}
+{"BirthDate":"1958-09-19","EmployeeID":4,"FirstName":"Margaret","LastName":"Peacock","Notes":"Margaret holds a BA in English literature from Concordia College and an MA from the American Institute of Culinary Arts.","Photo":"EmpID4.pic"}
+{"BirthDate":"1955-03-04","EmployeeID":5,"FirstName":"Steven","LastName":"Buchanan","Notes":"Steven Buchanan graduated from St. Andrews University, Scotland, with a BSC degree.","Photo":"EmpID5.pic"}
+{"BirthDate":"1963-07-02","EmployeeID":6,"FirstName":"Michael","LastName":"Suyama","Notes":"Michael is a graduate of Sussex University (MA, economics) and the University of California at Los Angeles (MBA, marketing).","Photo":"EmpID6.pic"}
+{"BirthDate":"1960-05-29","EmployeeID":7,"FirstName":"Robert","LastName":"King","Notes":"Robert King served in the Peace Corps and traveled extensively before completing his degree in English at the University of Michigan and then joining the company.","Photo":"EmpID7.pic"}
+{"BirthDate":"1958-01-09","EmployeeID":8,"FirstName":"Laura","LastName":"Callahan","Notes":"Laura received a BA in psychology from the University of Washington.","Photo":"EmpID8.pic"}
+{"BirthDate":"1969-07-02","EmployeeID":9,"FirstName":"Anne","LastName":"Dodsworth","Notes":"Anne has a BA degree in English from St. Lawrence College.","Photo":"EmpID9.pic"}
+{"BirthDate":"1928-09-19","EmployeeID":10,"FirstName":"Adam","LastName":"West","Notes":"An old chum.","Photo":"EmpID10.pic"}

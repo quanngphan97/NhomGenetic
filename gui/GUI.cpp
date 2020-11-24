@@ -391,9 +391,11 @@ void GUI::ExportProductsFromStock() {
     cin >> order.CustomerID;
     cout << "**Enter ShipperID: ";
     cin >> order.ShipperID;
+	cout << "**Enter OrderDate(yyyy-mm-dd): ";
+    cin >> order.OrderDate;
     order.EmployeeID = 1;
-    Util u;
-	order.OrderDate = u.GetToday();
+    // Util u;
+	// order.OrderDate = u.GetToday();
 	order.OrderID = ordersdata.getLastId() + 1;
     ordersdata.pushBack(order);
 
@@ -439,8 +441,8 @@ void GUI::ListData(){
     CategoriesData categoriesdata("Categories.data");
     EmployeesData employeesdata("Employees.data");
     ProductsData productsdata("Products.data");
-    OrdersData ordersdata("Orders.data");
-    OrderDetailsData orderdetailsdata("OrderDetails.data");
+    // OrdersData ordersdata("Orders.data");
+    // OrderDetailsData orderdetailsdata("OrderDetails.data");
     DataShippers shippersdata("Shippers.data");
     DataSupplier suppliersdata("Suppliers.data");
 
@@ -457,10 +459,10 @@ void GUI::ListData(){
         cout << "**(2)Categories" << endl;
         cout << "**(3)Employees" << endl;
         cout << "**(4)Products" << endl;
-        cout << "**(5)Orders" << endl;
-        cout << "**(6)OrderDetails" << endl;
-        cout << "**(7)Shippers" << endl;
-        cout << "**(8)Suppliers" << endl;
+        // cout << "**(5)Orders" << endl;
+        // cout << "**(6)OrderDetails" << endl;
+        cout << "**(5)Shippers" << endl;
+        cout << "**(6)Suppliers" << endl;
         cout << "**(0)Back" << endl << endl;
         cout << "**What data do you want to display? ";
         cin >> choose;
@@ -501,25 +503,25 @@ void GUI::ListData(){
                 }
                 system("pause");
                 break;
+            // case 5:
+            //     cout << "Data Orders:" << endl;
+            //     cout << "OrderID, CustomerID, EmployeeID, OrderDate, ShipperID" << endl;
+            //     for (int i=0; i < ordersdata.getSize(); i++){
+            //         Orders item = ordersdata.get(i);
+            //         cout << item.toString() << endl;
+            //     }
+            //     system("pause");
+            //     break;
+            // case 6:
+            //     cout << "Data OrderDetails:" << endl;
+            //     cout << "OrderDetailID, OrderID, ProductID, Quantity" << endl;
+            //     for (int i=0; i < orderdetailsdata.getSize(); i++){
+            //         OrderDetails item = orderdetailsdata.get(i);
+            //         cout << item.toString() << endl;
+            //     }
+            //     system("pause");
+            //     break;
             case 5:
-                cout << "Data Orders:" << endl;
-                cout << "OrderID, CustomerID, EmployeeID, OrderDate, ShipperID" << endl;
-                for (int i=0; i < ordersdata.getSize(); i++){
-                    Orders item = ordersdata.get(i);
-                    cout << item.toString() << endl;
-                }
-                system("pause");
-                break;
-            case 6:
-                cout << "Data OrderDetails:" << endl;
-                cout << "OrderDetailID, OrderID, ProductID, Quantity" << endl;
-                for (int i=0; i < orderdetailsdata.getSize(); i++){
-                    OrderDetails item = orderdetailsdata.get(i);
-                    cout << item.toString() << endl;
-                }
-                system("pause");
-                break;
-            case 7:
                 cout << "Data Shippers:" << endl;
                 cout << "ShipperID, ShipperName, Phone" << endl;
                 for (int i=0; i < shippersdata.GetSize(); i++){
@@ -528,7 +530,7 @@ void GUI::ListData(){
                 }
                 system("pause");
                 break;
-            case 8:
+            case 6:
                 cout << "Data Suppliers:" << endl;
                 cout << "SupplierID, SupplierName, ContactName, Address, City, PostalCode, Country, Phone" << endl;
                 for (int i=0; i < suppliersdata.GetSize(); i++){
