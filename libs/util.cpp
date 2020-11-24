@@ -44,3 +44,25 @@ bool Util::isEqual(tm tm1, tm tm2){
     if (tm1.tm_mday != tm2.tm_mday) return false;
     return true;
 }
+
+/** @brief Function get today.
+ *  
+ *  Function get today, read date of today from device then convert to a string.
+ *  @return date of today with format dd/mm/yyyy.
+ *  @author Ly Truong (truonglehaily)
+ */
+string Util::GetToday(){
+    time_t curr_time;
+	tm * curr_tm;
+	char date_string[10];
+	string s = "";
+	
+	time(&curr_time);
+	curr_tm = localtime(&curr_time);
+	
+	strftime(date_string, 50, "%d/%m/%Y", curr_tm);
+	for(char i:date_string){
+		s += i;
+	}
+	return s;
+}

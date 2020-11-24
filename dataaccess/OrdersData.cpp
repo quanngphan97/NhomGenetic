@@ -89,3 +89,6 @@ int OrdersData::exportToFile(string outFileName) {
 	return 1;
 }
 
+int OrdersData::getLastId(){
+	return dataVector.back().OrderID;
+}

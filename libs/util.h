@@ -10,5 +10,6 @@ public:
     string time2string(tm tm1);
     int compare(tm tm1, tm tm2);
     bool isEqual(tm tm1, tm tm2);
+    string GetToday();
 };
 #endif

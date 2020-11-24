@@ -11,6 +11,7 @@ Supplier::Supplier(int SupplierID,string SupplierName,string ContactName,string 
     this->ContactName = ContactName;
     this->Address = Address;
     this->City = City;
+    this->PostalCode = PostalCode;
     this->Country =Country;
 	this->Phone = Phone;
 }

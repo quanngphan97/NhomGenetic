@@ -65,7 +65,7 @@ public:
     Orders* getP(int);
     int getSize();
     int exportToFile(string);
-
+    int getLastId();
 };
 
 #endif // !OrderData_h

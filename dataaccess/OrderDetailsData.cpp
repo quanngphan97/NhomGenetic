@@ -127,3 +127,6 @@ int OrderDetailsData::exportToFile(string outFileName) {
 	return 1;
 }
 
+int OrderDetailsData::getLastId(){
+	return dataVector.back().OrderDetailID;
+}
