@@ -586,6 +586,130 @@ void GUI::PrintExportProductstostock(){
 }
 
 void GUI::UpdateSupplier(){
-    
+    cout << " Update Information Supplier " << endl;
+	cout << " Select The Number " << endl;
+	cout << " 1.Insert The Information " << endl;
+	cout << " 2.Update The Information " << endl;
+	cout << " 3.Print The Information " << endl;
+	cout << " 4.Exit 				  " << endl;
+	int n;
+	do
+	{
+	cout << "Enter Your Number" << endl ;
+	cin >> n;
+	} while (n <= 0 && n > 4);
+	switch (n)
+	{
+	case 1:
+		//InsertSupplier()
+		{
+			cout << "Enter your number Import Supplier to stock" << endl;
+			int n;
+			cin >> n;
+			Supplier s;
+			DataSupplier d("Suppliers.data");
+			for(int i = 0;i < n ;i++)
+			{
+				cout << "Enter the Supplier " << endl;
+				cout << "Number" << i+1 << endl;
+				cout << "SupplierID" << endl;
+				cin >> s.SupplierID ;
+				cout << endl;
+				cout << "SupplierName" << endl;
+				cin >> s.SupplierName ;
+				cout << endl;
+				cout << "ContactName" << endl;
+				cin >> s.ContactName ;
+				cout << endl;
+				cout << "Address" << endl;
+				cin >> s.Address ;
+				cout << endl;
+				cout << "City" << endl;
+				cin >> s.City ;
+				cout << endl;
+				cout << "PostalCode" << endl;
+				cin >> s.PostalCode ;
+				cout << endl;
+				cout << "Country" << endl;
+				cin >> s.Country ;
+				cout << endl;
+				cout << "Phone" << endl;
+				cin >> s.Phone ;
+				cout << endl;
+
+				cout << "Your SupplierID is: " << s.SupplierID  << endl;
+				cout << "Your SupplierName is: " << s.SupplierName << endl;
+				cout << "Your ContactName is: " << s.ContactName << endl;
+				cout << "Your Address is: " << s.Address << endl;
+				cout << "Your City is: " << s.City << endl;
+				cout << "Your Address is: " << s.Address << endl;
+				cout << "Your PostalCode is: " << s.PostalCode << endl;
+				cout << "Your Country is: " <<  s.Country << endl;
+				cout << "Your Phone is: " <<  s.Phone << endl;
+				d.Pushback(s);
+			}
+				cout << " Complete !! " << endl;
+				d.Exportofile("Suppliers.data");
+		//		UpdateSupplier();
+		};
+		break;
+	case 2:
+	//	UpdateSUpplier();
+	{		DataSupplier d("Suppliers.data");
+				cout << " Enter the number your Update " << endl;
+				Supplier s;
+				int number ;
+				cin >> number;
+				cout << endl;
+				cout << "SupplierID" << endl;
+				cin >> s.SupplierID ;
+				cout << endl;
+				cout << "SupplierName" << endl;
+				cin >> s.SupplierName ;
+				cout << endl;
+				cout << "ContactName" << endl;
+				cin >> s.ContactName ;
+				cout << endl;
+				cout << "Address" << endl;
+				cin >> s.Address ;
+				cout << endl;
+				cout << "City" << endl;
+				cin >> s.City ;
+				cout << endl;
+				cout << "PostalCode" << endl;
+				cin >> s.PostalCode ;
+				cout << endl;
+				cout << "Country" << endl;
+				cin >> s.Country ;
+				cout << endl;
+				cout << "Phone" << endl;
+				cin >> s.Phone ;
+				cout << endl;
+			d.Update(number,s);
+			Supplier t;
+			for(int i=0;i<d.GetSize();i++)
+			{
+			s = d.get(i); 
+			cout << s.Tostring() << endl;
+			}
+			d.Exportofile("Suppliers.data");
+		//	UpdateSupplier();
+	};
+				break;
+	case 3:
+		//PrintSupplier();
+		{	DataSupplier d("Suppliers.data");
+			Supplier s;
+			for(int i=0;i<d.GetSize();i++)
+			{
+			s = d.get(i);
+			cout << s.Tostring() << endl;
+			}
+		//	UpdateSupplier();
+		};
+		break;
+	case 4:
+		break;
+	}
 }
 
