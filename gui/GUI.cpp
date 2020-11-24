@@ -56,18 +56,15 @@ void GUI::importProductsToStock(){
 		cout << "INSERT YOUR " << (i + 1) << " ORDER: " << endl;
 
 		int idMax = 0;
-
 		for (int i = 0; i < ordersdata.getSize(); i++) {
 			Orders oi = ordersdata.get(i);
 			if ((oi.OrderID) >= idMax){
 				idMax = oi.OrderID;
 			}
 			else {}
-		}
-		
+		}	
 		orders.OrderID = (idMax+1);
 		orderdetails.OrderID = orders.OrderID;
-
 		/*cout << "The Order ID (Int Type): ";
 		cin >> orders.OrderID;
 		orderdetails.OrderID = orders.OrderID;*/
@@ -80,8 +77,10 @@ void GUI::importProductsToStock(){
 
 		/*orders.OrderDate = (string)Writetimernewupdate();*/
 		/*orders.OrderDate = GetToday();*/
-		cout << "The Order Date (String Type): ";
+		cout << "The Order Date (String_Type(yyyy-mm-dd)): ";
 		cin >> orders.OrderDate;
+		/*cout << "The Order Date (String Type): ";
+		getline(cin, orders.OrderDate);*/
 
 		cout << "The Shipper ID (Int Type): ";
 		cin >> orders.ShipperID;
@@ -96,11 +95,20 @@ void GUI::importProductsToStock(){
 			cout << endl << endl;
 			cout << "INSERT YOUR " << (i + 1) << " PRUDUCTS:: " << endl;
 
+			int idMax2 = 0;
+			for (int i = 0; i < orderdetailsdata.getSize(); i++) {
+				OrderDetails od = orderdetailsdata.get(i);
+				if ((od.OrderDetailID) >= idMax2) {
+					idMax2 = od.OrderDetailID;
+				}
+			}
+
+			orderdetails.OrderDetailID = idMax2 + 1;
+			/*cout << "The OrderDetail ID (Int Type): ";
+			cin >> orderdetails.OrderDetailID;*/
+
 			cout << "The Product ID (Int Type): ";
 			cin >> orderdetails.ProductID;
-
-			cout << "The OrderDetail ID (Int Type): ";
-			cin >> orderdetails.OrderDetailID;
 
 			cout << "The Quantity (Int Type): ";
 			cin >> orderdetails.Quantity;
@@ -140,6 +148,8 @@ void GUI::importProductsToStock(){
 	}
 
 	orderdetailsdataS.exportToFile(orderDetailsFile);
+
+	//menuOptions();
 }
 
 void GUI::manageProducts(){
@@ -151,7 +161,8 @@ void GUI::manageProducts(){
 	cout << "     **------------------------------------------------**" << endl;
 	cout << "     **        1.Add Products to Products List         **" << endl;
 	cout << "     **        2.Remove Products from Products List    **" << endl;
-	cout << "     **        3.Exit                                  **" << endl;
+	cout << "     **        3.Print All Products                    **" << endl;
+	cout << "     **        4.Exit                                  **" << endl;
 	cout << "     **------------------------------------------------**" << endl << endl;
 
 	cin >> yourChosen;
@@ -165,15 +176,15 @@ void GUI::manageProducts(){
 		cout << "Your Chosen is: \"Add More Products To Products List\"" << endl << endl;
 		cout << "HOW MANY PRODUCTS THAT YOU WANT TO ADD TO PRODUCTS LIST?" << endl << endl;
 		cin >> n;
-	
+
 		for (int i = 0; i < n; i++) {
 			Products product;
-	
+
 			cout << endl;
 			cout << "INSERT YOUR " << (i + 1) << " PRODUCT: " << endl;
-	
+
 			int idMax = 0;
-	
+
 			for (int i = 0; i < productsdata.getSize(); i++) {
 				Products pr = productsdata.get(i);
 				if ((pr.ProductID) >= idMax) {
@@ -181,39 +192,41 @@ void GUI::manageProducts(){
 				}
 				else {}
 			}
-	
+
 			product.ProductID = idMax +1;
 			/*cout << "The Product ID (Int Type): ";
 			cin >> product.ProductID;*/
-	
+
 			cout << "The Product Name (String Type): ";
 			cin >> product.ProductName;
-	
+			/*cout << "The Product Name (String Type): ";
+			getline(cin, product.ProductName);*/
+
 			cout << "The Supply ID (Int Type): ";
 			cin >> product.SupplyID;
-	
+
 			cout << "The Category ID (Int Type): ";
 			cin >> product.CategoryID;
-	
+
 			cout << "The Unit (Int Type): ";
 			cin >> product.Unit;
-	
+
 			cout << "The Price (Int Type): ";
 			cin >> product.Price;
-	
+
 			productsdata.pushBack(product);
 		}
-	
+
 		productsdata.exportToFile(productsFile);
-	
+
 		cout << endl;
 		cout << "ALL PRODUCTS IN PRODUCTS FILE ARE: " << endl;
-	
+
 		for (int i = 0; i < productsdata.getSize(); i++) {
 			Products p = productsdata.get(i);
 			cout << p.toString() << endl;
 		}
-	
+
 		//manageProducts();
 	}
 	else if (yourChosen == 2) {
@@ -223,13 +236,13 @@ void GUI::manageProducts(){
 		int id;
 		cout << "INSERT THE PRODUCT'S ID THAT YOU WANT TO REMOVE IT FROM PRODUCTS LIST: " << endl;
 		cin >> id;
-	
+
 		if (id < 0) {
 			cout << "EROR TYPE: Please Insert unsigned Interger Type!!" << endl << endl;
 			//removeProductsFromProductsList();
 		}
 		else if (id >= 0) {
-	
+
 			for (int i = 0; i < productsdata.getSize(); i++) {
 				Products p = productsdata.get(i);
 				if ((p.ProductID) == id) {
@@ -239,17 +252,32 @@ void GUI::manageProducts(){
 				else {}
 			}
 		}
-	
+
 		productsdata.exportToFile(productsFile);
-	
+
 		cout << endl <<"NOW, ALL PRODUCTS IN PRODUCTS FILE ARE: " << endl;
-	
+
 		for (int i = 0; i < productsdata.getSize(); i++) {
 			Products p = productsdata.get(i);
 			cout << p.toString() << endl;
 		}
-	
+
 		//manageProducts();
+	}
+	else if (yourChosen == 3) {
+		//printAllProducts();
+		ProductsData productsdata(productsFile);
+
+		cout << endl;
+		cout << "ALL PRODUCTS IN PRODUCTS FILE ARE: " << endl;
+
+		for (int i = 0; i < productsdata.getSize(); i++) {
+			Products p = productsdata.get(i);
+			cout << p.toString() << endl;
+		}
+
+		//manageProducts();
+		
 	}
 	else {
 		cout << "Your Chosen is \"Exit Menu\"" << endl << endl;
@@ -266,7 +294,8 @@ void GUI::manageCategories(){
 	cout << "     **------------------------------------------------**" << endl;
 	cout << "     **        1.Add Categories to Categories List     **" << endl;
 	cout << "     **        2.Remove Category from Categories List  **" << endl;
-	cout << "     **        3.Exit                                  **" << endl;
+	cout << "     **        3.Print All Categories                  **" << endl;
+	cout << "     **        4.Exit                                  **" << endl;
 	cout << "     **------------------------------------------------**" << endl << endl;
 
 	cin >> yourChosen;
@@ -280,48 +309,49 @@ void GUI::manageCategories(){
 		cout << "Your Chosen is: \"Add More Categories To Categories List\"" << endl << endl;
 		cout << "HOW MANY CATEGORIES THAT YOU WANT TO ADD TO CATEGORIES LIST?" << endl << endl;
 		cin >> n;
-	
+
 		for (int i = 0; i < n; i++) {
 			Categories categories;
-	
+
 			cout << endl;
 			cout << "INSERT YOUR " << (i + 1) << " CATEGORY: " << endl;
-	
+
 			int idMax = 0;
-	
+
 			for (int i = 0; i < categoriesdata.GetSize(); i++) {
 				Categories ct = categoriesdata.Get(i);
 				if ((ct.CategoryID) >= idMax) {
 					idMax = ct.CategoryID;
 				}
-				else {}
 			}
-	
-			categories.CategoryID = idMax +1;
+			categories.CategoryID = (idMax +1);
 			/*cout << "The Category ID (Int Type): ";
 			cin >> categories.CategoryID;*/
-	
+
 			cout << "The Category Name (String Type): ";
 			cin >> categories.CategoryName;
-	
+			/*cout << "The Category Name (String Type): ";
+			getline(cin, (categories.CategoryName));*/
+
 			cout << "The Description (String Type): ";
 			cin >> categories.Description;
-	
-	
+			/*cout << "The Description (String Type): ";
+			getline(cin, (categories.Description));*/
+
 			categoriesdata.CreateCategory(categories);
 		}
-	
+
 		categoriesdata.ExportToFile(categoriesFile);
-	
+
 		cout << endl;
 		cout << "ALL PRODUCTS IN PRODUCTS FILE ARE: " << endl;
-	
+
 		for (int i = 0; i < categoriesdata.GetSize(); i++) {
 			Categories c = categoriesdata.Get(i);
 			cout << c.ToString() << endl;
 		}
-	
-		manageCategories();
+
+		//manageCategories();
 	}
 	else if (yourChosen == 2) {
 		//removeCategoriesFromCategoriesList();
@@ -330,13 +360,13 @@ void GUI::manageCategories(){
 		int id;
 		cout << "INSERT THE CATEGORY'S ID THAT YOU WANT TO REMOVE IT FROM CATEGORIES LIST: " << endl;
 		cin >> id;
-	
+
 		if (id < 0) {
 			cout << "EROR TYPE: Please Insert unsigned Interger Type!!" << endl << endl;
 			//removeProductsFromProductsList();
 		}
 		else if (id >= 0) {
-	
+
 			for (int i = 0; i < categoriesdata.GetSize(); i++) {
 				Categories cg = categoriesdata.Get(i);
 				if ((cg.CategoryID) == id) {
@@ -346,16 +376,29 @@ void GUI::manageCategories(){
 				else {}
 			}
 		}
-	
+
 		categoriesdata.ExportToFile(categoriesFile);
-	
-		cout << endl << "NOW, ALL PRODUCTS IN PRODUCTS FILE ARE: " << endl;
-	
+
+		cout << endl << "ALL CATEGORIES IN CATEGORIES FILE ARE: " << endl;
+
 		for (int i = 0; i < categoriesdata.GetSize(); i++) {
 			Categories cg = categoriesdata.Get(i);
 			cout << cg.ToString() << endl;
 		}
-	
+
+		//manageCategories();
+	}
+	else if (yourChosen == 3) {
+		//printAllCategories();
+		CategoriesData categoriesdata(categoriesFile);
+
+		cout << endl << "ALL CATEGORIES IN CATEGORIES FILE ARE: " << endl;
+
+		for (int i = 0; i < categoriesdata.GetSize(); i++) {
+			Categories c = categoriesdata.Get(i);
+			cout << c.ToString() << endl;
+		}
+
 		//manageCategories();
 	}
 	else {
