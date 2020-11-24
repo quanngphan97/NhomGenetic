@@ -221,7 +221,37 @@ void GUI::ListData(){
 }
 
 void GUI::CheckInventory(){
-    
+    cout << "Check Inventory Product " << endl;
+	OrderDetailsData d("OrderDetails.data");
+	OrderDetails s,k;
+	int parameter = 0;
+	int Result =  0;
+	vector<int> ArrayProductID;
+	for(int i=0; i<d.getSize(); i++)
+	{
+		s=d.get(i);
+		if(ArrayProductID.size()==0) ArrayProductID.push_back(s.ProductID);
+		for(int n= 0 ;n < ArrayProductID.size();n++)
+		{
+			if(s.ProductID == ArrayProductID[n]) parameter = parameter + 1 ; 
+		}
+		if(parameter==0)
+		{
+		 ArrayProductID.push_back(s.ProductID);
+		}
+		parameter = 0 ;
+	}
+	for(int j=0;j<ArrayProductID.size();j++)
+	{
+		for(int m=0;m<d.getSize();m++)
+			{
+				k = d.get(m);
+				if(ArrayProductID[j] == k.ProductID ) Result = Result + k.Quantity;
+			}
+		cout << "ProductID " << ArrayProductID[j] << " Quantity " << Result << endl;
+		Result = 0; 
+	}
+	cout << " Checked Inventory Product Complete " << endl ;
 }
 
 void GUI::PrintImportProductstostock(){
