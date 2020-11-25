@@ -42,6 +42,7 @@ void menuOptions() {
 		cout << "     **          6.Update Product                      **" << endl;
 		cout << "     **          7.Update Category                     **" << endl;
 		cout << "     **          8.List Data                           **" << endl;
+		cout << "     **          9.Backup and Recovery                 **" << endl;
 		cout << "     **          0.Exit Menu                           **" << endl;
 		cout << "     **------------------------------------------------**" << endl << endl;
 
@@ -71,6 +72,9 @@ void menuOptions() {
 				break;
 			case 8:
 				gui.ListData();
+				break;
+			case 9:
+				gui.BackupAndRecovery();
 				break;
 		default:
 			break;

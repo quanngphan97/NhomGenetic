@@ -588,6 +588,86 @@ void GUI::ListData(){
     }while (choose != 0);    
 }
 
+/** @brief Function backup and recovery file.
+ *  
+ *  Function backup and recovery file, select file then save to another folder
+ * 	and select file then recovery from another folder.
+ *  @author Ly Truong (truonglehaily)
+ */
+void GUI::BackupAndRecovery(){
+	Util u;
+	int choose, selectFile, result;
+	string path;
+    do{
+        system("cls");
+        cout << endl << endl;
+        cout << "**------------------------------------------------**" << endl;
+        cout << "**                 LGE Store                      **" << endl;
+        cout << "**------------------------------------------------**" << endl;
+        cout << "**          9.Backup and Recovery                 **" << endl;
+        cout << "**------------------------------------------------**" << endl;
+		cout << "**(1)Save to folder" << endl;
+		cout << "**(2)Backup from folder" << endl;
+		cout << "**(0)Back" << endl << endl;
+        cout << "**What do you want to do? ";
+		cin >> choose;
+
+		system("cls");
+		cout << endl << endl;
+		cout << "**------------------------------------------------**" << endl;
+		cout << "**                 LGE Store                      **" << endl;
+		cout << "**------------------------------------------------**" << endl;
+		cout << "**          9.Backup and Recovery                 **" << endl;
+		cout << "**------------------------------------------------**" << endl;
+		cout << "**(1)Customers" << endl;
+        cout << "**(2)Categories" << endl;
+        cout << "**(3)Employees" << endl;
+        cout << "**(4)Products" << endl;
+        cout << "**(5)Orders" << endl;
+        cout << "**(6)OrderDetails" << endl;
+        cout << "**(7)Shippers" << endl;
+        cout << "**(8)Suppliers" << endl;
+        cout << "**(0)Back" << endl << endl;
+		switch (choose){
+		case 1:
+			cout << "**What file do you want to Backup? ";
+			cin >> selectFile;
+			if(selectFile == 0) break;
+			//Backup file
+			cout << "**Enter directory you want to save (Ex: D:\\\\example\\\\): ";
+			cin >> path;
+			// replace(path.begin(), path.end(), "\\", "\\\);
+			result = u.CopyFile("", path, selectFile);
+			if(result == 0){
+				cout << "Save file successed!";
+			}
+			else{
+				cout << "Save file failed!";
+			}
+			system("pause");
+			break;
+		case 2:
+			cout << "**What file do you want to Recovery? ";
+			cin >> selectFile;
+			if(selectFile == 0) break;
+			//Recovery file
+			cout << "**Enter directory you want to recovery (Ex: D:\\\\example\\\\): ";
+			cin >> path;
+			result = u.CopyFile(path, "", selectFile);
+			if(result == 0){
+				cout << "Recovery file successed!";
+			}
+			else{
+				cout << "Recovery file failed!";
+			}
+			system("pause");
+			break;
+		default:
+			break;
+		}
+	}while (choose != 0);
+}
+
 void GUI::CheckInventory(){
 	cout << "**------------------------------------------------**" << endl;
     cout << "**                 LGE Store                      **" << endl;

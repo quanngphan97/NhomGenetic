@@ -3,6 +3,7 @@
 #include <iostream>
 #include <stdio.h>
 #include <time.h>
+#include <fstream>
 using namespace std;
 class Util{
 public:
@@ -11,5 +12,6 @@ public:
     int compare(tm tm1, tm tm2);
     bool isEqual(tm tm1, tm tm2);
     string GetToday();
+    int CopyFile(string from, string to, int select);
 };
 #endif

@@ -66,3 +66,62 @@ string Util::GetToday(){
 	}
 	return s;
 }
+
+/** @brief Function copy file.
+ *  
+ *  Function copy file, read a file from folder then write this to another folder.
+ *  @return 0 if copy file success, 1 if error.
+ *  @author Ly Truong (truonglehaily)
+ */
+int Util::CopyFile(string from, string to, int select){
+    string fileName = "";
+    switch (select){
+        case 1:
+            fileName = "Customers.data";
+            break;
+        case 2:
+            fileName = "Categories.data";
+            break;
+        case 3:
+            fileName = "Employees.data";
+            break;
+        case 4:
+            fileName = "Products.data";
+            break;
+        case 5:
+            fileName = "Orders.data";
+            break;
+        case 6:
+            fileName = "OrderDetails.data";
+            break;
+        case 7:
+            fileName = "Shippers.data";
+            break;
+        case 8:
+            fileName = "Suppliers.data";
+            break;
+    default:
+        break;
+    }
+
+    from = from + fileName;
+    to = to + fileName;
+    try{
+        ifstream in(from);	
+		in.seekg(0, ios::end);
+		size_t len = in.tellg();
+		unsigned char *oData = new unsigned char[len];
+		in.read((char*)(&oData[0]), len);
+		in.close(); 
+		
+		ofstream out(to);	
+		out.write((char *)oData, len);
+		out.close();
+
+		delete[] oData;
+        return 0;
+    }
+    catch(...){
+        return 1;
+    }
+}

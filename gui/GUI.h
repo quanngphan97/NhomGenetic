@@ -11,6 +11,7 @@ public:
     //Ly
     void ExportProductsFromStock();
     void ListData();
+    void BackupAndRecovery();
     //Quang
     void CheckInventory();
     void PrintImportProductstostock();
