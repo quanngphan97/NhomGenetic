@@ -589,12 +589,19 @@ void GUI::ListData(){
 }
 
 void GUI::CheckInventory(){
-    cout << "Check Inventory Product " << endl;
+	cout << "**------------------------------------------------**" << endl;
+    cout << "**                 LGE Store                      **" << endl;
+    cout << "**------------------------------------------------**" << endl;
+    cout << "**-------------Check Inventory Product------------**" << endl;
 	OrderDetailsData d("OrderDetails.data");
 	OrderDetails s,k;
 	int parameter = 0;
 	int Result =  0;
 	vector<int> ArrayProductID;
+	cout << "**------------------------------------------------**" << endl;
+    cout << "**                 LGE Store                      **" << endl;
+    cout << "**-------------Quantity of inventory --------------**" << endl;
+	cout << "**-------------Inventory information --------------**" << endl;
 	for(int i=0; i<d.getSize(); i++)
 	{
 		s=d.get(i);
@@ -616,10 +623,91 @@ void GUI::CheckInventory(){
 				k = d.get(m);
 				if(ArrayProductID[j] == k.ProductID ) Result = Result + k.Quantity;
 			}
-		cout << "ProductID " << ArrayProductID[j] << " Quantity " << Result << endl;
+		cout << "ProductID : " << ArrayProductID[j] << " Quantity : " << Result << endl;
 		Result = 0; 
 	}
-	cout << " Checked Inventory Product Complete " << endl ;
+	
+	cout << "**----------------------------------------------------------------**" << endl;
+	cout << "**--Do you want to check report inventory information in time ? --**" << endl;
+	cout << "			Press number 1 to check								 " << endl;
+	cout << "			Press number 2 to exit								 " << endl;
+	int Condition;
+	cin >> Condition;
+	switch (Condition)
+	{
+	case /* constant-expression */ 1:
+		/* code */
+	{
+		cout << "**------------------------------------------------**" << endl;
+    cout << "**                 LGE Store                      **" << endl;
+    cout << "**------Report inventory information in time------**" << endl;
+    string start,end,detail;
+    cout << "Time start (yyyy-mm-dd) :  " ;
+    cin >> start;
+    cout << "Timer final (yyyy-mm-dd) : " ;
+    cin >> end ;
+	cout << "**-----Inventory infomation to " << start << " from " << end << "-----**" << endl; 
+    Util tm1;
+    Util tm2;
+    Util tm3;
+    Util tm4;
+    Util tm5;
+   OrdersData h("Orders.data");
+    Orders m;
+    tm  t1 = tm1.string2time(start);
+    tm  t2 = tm2.string2time(end);
+    int total = 0;
+    vector<int> OrderArrayID;
+    for(int j= 0;j<h.getSize();j++)
+    {
+        m = h.get(j);
+        tm t3 = tm3.string2time(m.OrderDate);
+        if(tm4.compare(t1,t3) <= 0 && tm5.compare(t2,t3) >=0 )
+        {
+                OrderArrayID.push_back(m.OrderID);
+               
+        }
+    }
+	OrderDetails w,uu;
+	vector<OrderDetails> ww;
+	for( int p = 0;p < d.getSize();p++) 
+	{
+		w = d.get(p);
+		for(int pp = 0 ;pp < OrderArrayID.size();pp++)
+		{
+		if(w.OrderID == OrderArrayID[pp] ) ww.push_back(w);
+		}
+	}
+	int totalresult = 0;
+	int temp = 0;
+	for(int hh = 0;hh < ArrayProductID.size();hh++)
+	{
+		for(int hhh = 0;hhh < ww.size();hhh++)
+		{
+			if(ww[hhh].ProductID == ArrayProductID[hh]) 
+			{
+				totalresult = totalresult + ww[hhh].Quantity;
+				temp = temp + 1;
+			}	
+		}
+		if(temp > 0)
+		{
+		cout << "ProductID : " << ArrayProductID[hh] << " Quantity : " << totalresult << endl;
+		}
+		totalresult = 0 ;
+		temp = 0;
+	}
+	cout << "**----------------------------------------**" << endl;
+	cout << "**---Checked Inventory Product Complete---**" << endl ;
+	}
+		system("pause");
+		break;
+	case 2:
+		system("pause");
+		break;
+	default:
+		break;
+	}
 }
 
 void GUI::PrintImportProductstostock(){
@@ -631,16 +719,19 @@ void GUI::PrintExportProductstostock(){
 }
 
 void GUI::UpdateSupplier(){
-    cout << " Update Information Supplier " << endl;
-	cout << " Select The Number " << endl;
-	cout << " 1.Insert The Information " << endl;
-	cout << " 2.Update The Information " << endl;
-	cout << " 3.Print The Information " << endl;
-	cout << " 4.Exit 				  " << endl;
+	cout << "**------------------------------------------------**" << endl;
+    cout << "**                 LGE Store                      **" << endl;
+    cout << "**------------------------------------------------**" << endl;
+    cout << "**----------Update Information Supplier-----------**" << endl;
+	cout << "**----------Select The Number---------------------**" << endl;
+	cout << "**----------1.Insert The Information--------------**" << endl;
+	cout << "**----------2.Update The Information--------------**" << endl;
+	cout << "**----------3.Print The Information---------------**" << endl;
+	cout << "**----------4.Exit--------------------------------**" << endl;
 	int n;
 	do
 	{
-	cout << "Enter Your Number" << endl ;
+	cout << " Enter Your Number :  " ;
 	cin >> n;
 	} while (n <= 0 && n > 4);
 	switch (n)
@@ -648,86 +739,88 @@ void GUI::UpdateSupplier(){
 	case 1:
 		//InsertSupplier()
 		{
-			cout << "Enter your number Import Supplier to stock" << endl;
+			cout << " Enter your number Import Supplier to stock : " ;
 			int n;
 			cin >> n;
 			Supplier s;
 			DataSupplier d("Suppliers.data");
 			for(int i = 0;i < n ;i++)
 			{
-				cout << "Enter the Supplier " << endl;
-				cout << "Number" << i+1 << endl;
-				cout << "SupplierID" << endl;
+				cout << "Enter the Supplier : " << endl;
+				cout << "Number : " << i+1 << endl;
+				cout << " Supplier ID : " ;
 				cin >> s.SupplierID ;
-				cout << endl;
-				cout << "SupplierName" << endl;
+				// cout << endl;
+				cout << "Supplier Name : " ;
 				cin >> s.SupplierName ;
-				cout << endl;
-				cout << "ContactName" << endl;
+				// cout << endl;
+				cout << "Contact Name : " ;
 				cin >> s.ContactName ;
-				cout << endl;
-				cout << "Address" << endl;
+				// cout << endl;
+				cout << "Address : " ;
 				cin >> s.Address ;
-				cout << endl;
-				cout << "City" << endl;
+				//cout << endl;
+				cout << "City : " ;
 				cin >> s.City ;
-				cout << endl;
-				cout << "PostalCode" << endl;
+				// cout << endl;
+				cout << "PostalCode : ";
 				cin >> s.PostalCode ;
-				cout << endl;
-				cout << "Country" << endl;
+				//cout << endl;
+				cout << "Country : ";
 				cin >> s.Country ;
-				cout << endl;
-				cout << "Phone" << endl;
+				// cout << endl;
+				cout << "Phone : " ;
 				cin >> s.Phone ;
 				cout << endl;
 
-				cout << "Your SupplierID is: " << s.SupplierID  << endl;
-				cout << "Your SupplierName is: " << s.SupplierName << endl;
-				cout << "Your ContactName is: " << s.ContactName << endl;
-				cout << "Your Address is: " << s.Address << endl;
-				cout << "Your City is: " << s.City << endl;
-				cout << "Your Address is: " << s.Address << endl;
-				cout << "Your PostalCode is: " << s.PostalCode << endl;
-				cout << "Your Country is: " <<  s.Country << endl;
-				cout << "Your Phone is: " <<  s.Phone << endl;
+				cout << " Your SupplierID is: " << s.SupplierID  << endl;
+				cout << " Your SupplierName is: " << s.SupplierName << endl;
+				cout << " Your ContactName is: " << s.ContactName << endl;
+				cout << " Your Address is: " << s.Address << endl;
+				cout << " Your City is: " << s.City << endl;
+				cout << " Your Address is: " << s.Address << endl;
+				cout << " Your PostalCode is: " << s.PostalCode << endl;
+				cout << " Your Country is: " <<  s.Country << endl;
+				cout << " Your Phone is: " <<  s.Phone << endl;
 				d.Pushback(s);
 			}
-				cout << " Complete !! " << endl;
+				cout << "**---------------Complete !!-------------**" << endl;
 				d.Exportofile("Suppliers.data");
-		//		UpdateSupplier();
-		};
-		break;
+				cout << endl;
+				UpdateSupplier();
+				};
+				system("pause");
+				break;
 	case 2:
 	//	UpdateSUpplier();
-	{		DataSupplier d("Suppliers.data");
-				cout << " Enter the number your Update " << endl;
+	{			DataSupplier d("Suppliers.data");
+				cout << " Enter The Number Your Update : " ;
 				Supplier s;
 				int number ;
 				cin >> number;
 				cout << endl;
-				cout << "SupplierID" << endl;
+					cout << " Supplier ID : " ;
 				cin >> s.SupplierID ;
-				cout << endl;
-				cout << "SupplierName" << endl;
+				// cout << endl;
+				cout << "Supplier Name : " ;
 				cin >> s.SupplierName ;
-				cout << endl;
-				cout << "ContactName" << endl;
+				// cout << endl;
+				cout << "Contact Name : " ;
 				cin >> s.ContactName ;
-				cout << endl;
-				cout << "Address" << endl;
+				// cout << endl;
+				cout << "Address : " ;
 				cin >> s.Address ;
-				cout << endl;
-				cout << "City" << endl;
+				//cout << endl;
+				cout << "City : " ;
 				cin >> s.City ;
-				cout << endl;
-				cout << "PostalCode" << endl;
+				// cout << endl;
+				cout << "PostalCode : " ;
 				cin >> s.PostalCode ;
-				cout << endl;
-				cout << "Country" << endl;
+				//cout << endl;
+				cout << "Country : " ;
 				cin >> s.Country ;
-				cout << endl;
-				cout << "Phone" << endl;
+				// cout << endl;
+				cout << "Phone : " ;
 				cin >> s.Phone ;
 				cout << endl;
 			d.Update(number,s);
@@ -738,20 +831,27 @@ void GUI::UpdateSupplier(){
 			cout << s.Tostring() << endl;
 			}
 			d.Exportofile("Suppliers.data");
+			cout << endl;
+			UpdateSupplier();
+			};
+			system("pause");
+			break;
 		//	UpdateSupplier();
-	};
-				break;
 	case 3:
 		//PrintSupplier();
-		{	DataSupplier d("Suppliers.data");
+		{	
+			DataSupplier d("Suppliers.data");
 			Supplier s;
 			for(int i=0;i<d.GetSize();i++)
 			{
 			s = d.get(i);
 			cout << s.Tostring() << endl;
 			}
+			cout << endl;
+			UpdateSupplier();
 		//	UpdateSupplier();
 		};
+		system("pause");
 		break;
 	case 4:
 		break;
