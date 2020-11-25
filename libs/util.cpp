@@ -73,6 +73,7 @@ string Util::GetToday(){
  *  @return 0 if copy file success, 1 if error.
  *  @author Ly Truong (truonglehaily)
  */
+//https://stackoverflow.com/questions/3512271/how-to-copy-text-file-in-c-or-c
 int Util::CopyFile(string from, string to, int select){
     string fileName = "";
     switch (select){
@@ -107,18 +108,10 @@ int Util::CopyFile(string from, string to, int select){
     from = from + fileName;
     to = to + fileName;
     try{
-        ifstream in(from);	
-		in.seekg(0, ios::end);
-		size_t len = in.tellg();
-		unsigned char *oData = new unsigned char[len];
-		in.read((char*)(&oData[0]), len);
-		in.close(); 
-		
-		ofstream out(to);	
-		out.write((char *)oData, len);
-		out.close();
+        std::ifstream inFile(from);
+        std::ofstream outFile(to);
 
-		delete[] oData;
+        outFile << inFile.rdbuf();
         return 0;
     }
     catch(...){
